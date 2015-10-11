@@ -1,0 +1,54 @@
+<h1>Listing users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Manager</th>
+      <th>Address</th>
+      <th>Address1</th>
+      <th>Address2</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.manager_id %></td>
+        <td><%= user.address %></td>
+        <td><%= user.address %></td>
+        <td><%= user.address %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User', new_user_path %>
+<%= link_to 'New User', new_user_path %>
+<%= link_to 'Seed User', seed_users_path %>
+<%= link_to 'Destroy User', unseed_users_path %>
+
+
+#new_user_path --> users controller  --> new action --> new view
+#edit_user_path(obj) --> users controller  --> edit action --> edit view
+#obj(user)  -->  users controller  --> show action --> show view
+
+
+users#login --> member action
+
+ogin_user_path(user)  --> users controller  --> login action --> login view
+
+users#login --> collection action
+
+ogin_user_path -->users controller  --> login action --> login view
